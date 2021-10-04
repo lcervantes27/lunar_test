@@ -1,0 +1,23 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+.search-container {
+    width: 70%;
+    font-size: 12px;
+}
+:host ::ng-deep .mat-form-field-flex {
+    background: #f5f4f4;
+    color: black;
+    margin-top: 1%;
+}
+.label-search{
+    color: #6a6767 !important;
+}
+.navbar{
+    position: fixed;
+    z-index: 70;
+}

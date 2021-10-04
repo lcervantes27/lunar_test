@@ -1,0 +1,55 @@
+<div class="container-entry" fxLayout>
+    <div class="profile-container" fxFlex="100%">
+        <div fxFlex="100%" class="entry-label">
+            <hr size="2" width="100%" color="#D4CCCB">
+            <p class="entry-label"><b>New Entry</b></p>
+        </div>
+    </div>    
+</div>
+<div class="form-container">
+    <div fxLayout>
+            <mat-form-field appearance="fill" class="form-entry">
+            <mat-label><mat-icon>dark_mode</mat-icon>Title</mat-label>
+            <input matInput>
+            <mat-icon matSuffix>edit</mat-icon>
+            </mat-form-field> 
+    </div>
+    <div fxLayout>
+        <mat-form-field appearance="fill" class="form-entry">
+            <mat-label><mat-icon>description</mat-icon>Description</mat-label>
+            <textarea matInput rows="5"></textarea>
+        </mat-form-field>
+    </div>
+    <div fxLayout>
+        <mat-form-field class="form-entry" appearance="fill">
+            <mat-label><mat-icon>label</mat-icon>Tags</mat-label>
+            <mat-chip-list #chipList aria-label="Tag selection">
+            <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                    [removable]="removable" (removed)="remove(tag)">
+                {{tag.name}}
+                <button matChipRemove *ngIf="removable">
+                <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+            <input placeholder="New tag..."
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+    </div>
+    <div fxLayout>
+        <mat-form-field class="form-entry" appearance="fill">
+            <mat-label><mat-icon>shield</mat-icon>Share with</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let sec of secs" [value]="sec.value">
+                {{sec.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div fxLayout class="btn-container" >
+        <button class="publis-btn" mat-raised-button color="primary">Publish</button>
+    </div>
+</div>
